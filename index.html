@@ -2,573 +2,447 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>骚宁药业 - 专注健康，呵护生命</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>2026 丙午马年 · 粒子礼赞</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #00f2ff;
+            --secondary: #ff007a;
+            --gold: #ffcc00;
+            --text-color: #ffffff;
         }
         
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            background-color: #050510;
+            color: var(--text-color);
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
         }
-        
-        header {
-            background-color: #1e6f9b;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        #world {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+
+        .universe-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(0, 242, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 204, 0, 0.15) 0%, transparent 50%),
+                linear-gradient(to bottom, #050510, #101030);
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        nav {
-            background-color: #ffffff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav ul {
-            list-style: none;
+
+        #ui-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 10;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            transition: all 1s ease;
         }
-        
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        
-        nav a:hover {
-            background-color: #f0f0f0;
-            color: #1e6f9b;
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #1e6f9b, #3498db);
-            color: white;
+
+        .card {
+            width: 500px;
+            padding: 50px;
+            background: rgba(25, 25, 45, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
             text-align: center;
-            padding: 100px 0;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
         }
-        
-        .hero h1 {
+
+        h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .about-us, .products, .contact {
-            background-color: white;
-        }
-        
-        .about-us h2, .products h2, .contact h2 {
-            text-align: center;
-            font-size: 2.2rem;
+
+        .author-tag {
+            color: rgba(255,255,255,0.6);
             margin-bottom: 40px;
-            color: #1e6f9b;
-            position: relative;
+            letter-spacing: 2px;
         }
-        
-        .about-us h2::after, .products h2::after, .contact h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #e74c3c;
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .about-image {
-            flex: 1;
-            background-color: #f0f0f0;
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .product-card {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .product-image {
-            height: 200px;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #1e6f9b;
-        }
-        
-        .product-info p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-        
-        .contact-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .contact-form, .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #1e6f9b;
-        }
-        
-        .contact-info ul {
-            list-style: none;
-        }
-        
-        .contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #1e6f9b;
-            box-shadow: 0 0 0 3px rgba(30, 111, 155, 0.1);
-        }
-        
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
+
+        .select-wrapper {
             margin-bottom: 30px;
         }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
+
+        select {
+            width: 100%;
+            padding: 18px;
+            background: #121225; 
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+            appearance: none;
         }
-        
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #ecf0f1;
+
+        .btn-start {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            color: #000;
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        
-        .footer-column p {
-            color: #bdc3c7;
-            margin-bottom: 15px;
+
+        #subtitle {
+            position: fixed;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+            z-index: 5;
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            white-space: pre-wrap; /* 支持换行 */
         }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column a:hover {
-            color: #ecf0f1;
-        }
-        
-        .copyright {
-            border-top: 1px solid #34495e;
-            padding-top: 20px;
-            color: #bdc3c7;
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .tagline {
-                font-size: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .about-image {
-                height: 200px;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            
-            section {
-                padding: 40px 0;
-            }
-            
-            .about-us h2, .products h2, .contact h2 {
-                font-size: 1.8rem;
-            }
-        }
-</style>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
 </head>
 <body>
-    <!-- 页面内容将在后续步骤中添加 -->
-    <header>
-        <div class="container">
-            <div class="logo">骚宁药业</div>
-            <div class="tagline">专注健康，呵护生命</div>
-        </div>
-    </header>
+
+    <div class="universe-bg"></div>
+    <div id="world"></div>
+    <div id="subtitle"></div>
     
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#products">产品中心</a></li>
-                <li><a href="#contact">联系我们</a></li>
-            </ul>
+    <div id="ui-layer">
+        <div class="card">
+            <h1>2026 粒子贺岁</h1>
+            <p class="author-tag">西安高新逸翠园 · 八年级C6班 · 金在熙</p>
+            <div class="select-wrapper">
+                <select id="teacher-select">
+                    <option value="" disabled selected>—— 请选择致敬老师 ——</option>
+                    <option value="math">数学 - 王彬老师</option>
+                    <option value="chinese">语文 - 赵爽老师</option>
+                    <option value="english">英语 - 王曼老师</option>
+                    <option value="politics">政治 - 徐小丹老师</option>
+                </select>
+            </div>
+            <button class="btn-start" onclick="startShow()">开始 20 阶段粒子礼赞</button>
         </div>
-    </nav>
-    
-    <main>
-        <section class="hero" id="home">
-            <div class="container">
-                <h1>创新医药，健康生活</h1>
-                <p>骚宁药业致力于为您提供高品质的医药产品，守护您和家人的健康</p>
-                <a href="#products" class="btn">了解产品</a>
-            </div>
-        </section>
-        
-        <section class="about-us" id="about">
-            <div class="container">
-                <h2>关于我们</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>公司简介</h3>
-                        <p>骚宁药业是一家专注于研发、生产和销售高品质医药产品的现代化企业。自成立以来，我们始终坚持"以人为本，科技兴企"的发展理念，致力于为广大消费者提供安全、有效的医药产品。</p>
-                        <p>公司拥有一支高素质的研发团队和先进的生产设备，严格按照GMP标准进行生产和质量管理，确保每一款产品都符合国家药品标准。</p>
-                        <p>在张振宁董事长的带领下，公司不断创新发展，积极拓展市场，产品远销全国各地，赢得了广大客户的信赖和好评。</p>
-                    </div>
-                    <div class="about-image">
-                        <p>公司环境图片</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="products" id="products">
-            <div class="container">
-                <h2>产品中心</h2>
-                <div class="product-grid">
-                    <!-- 重点产品：骚宁肾宝片 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <p>骚宁肾宝片</p>
-                        </div>
-                        <div class="product-info">
-                            <h3>骚宁肾宝片 <span style="color: #e74c3c; font-size: 0.9rem; margin-left: 10px;">新品上市</span></h3>
-                            <p>【产品特点】采用纯天然中药材精制而成，具有补肾壮阳、强腰健骨的功效。</p>
-                            <p>【主要成分】淫羊藿、肉苁蓉、锁阳、枸杞等多种名贵中药材。</p>
-                            <p>【适用人群】适用于肾虚引起的腰膝酸软、精神不振、疲劳乏力等症状。</p>
-                            <a href="#" class="btn">了解详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 其他产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <p>复方感冒药</p>
-                        </div>
-                        <div class="product-info">
-                            <h3>复方感冒药</h3>
-                            <p>【产品特点】快速缓解感冒症状，有效减轻发热、头痛、鼻塞等不适。</p>
-                            <p>【主要成分】对乙酰氨基酚、马来酸氯苯那敏、盐酸伪麻黄碱等。</p>
-                            <p>【适用人群】普通感冒或流行性感冒引起的各种症状。</p>
-                            <a href="#" class="btn">了解详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 其他产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <p>维生素咀嚼片</p>
-                        </div>
-                        <div class="product-info">
-                            <h3>多维元素咀嚼片</h3>
-                            <p>【产品特点】补充多种维生素和矿物质，增强免疫力，改善亚健康状态。</p>
-                            <p>【主要成分】维生素A、B族维生素、维生素C、维生素D、钙、铁等。</p>
-                            <p>【适用人群】需要补充维生素和矿物质的各类人群，尤其适合工作压力大、饮食不规律者。</p>
-                            <a href="#" class="btn">了解详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2>联系我们</h2>
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <h3>留言咨询</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name">姓名</label>
-                                <input type="text" id="name" placeholder="请输入您的姓名">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">电话</label>
-                                <input type="tel" id="phone" placeholder="请输入您的电话">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">留言内容</label>
-                                <textarea id="message" placeholder="请输入您的留言内容"></textarea>
-                            </div>
-                            <button type="submit" class="btn">提交留言</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <h3>联系方式</h3>
-                        <ul>
-                            <li>
-                                <span>地址：</span>
-                                <span>北京市海淀区中关村科技园</span>
-                            </li>
-                            <li>
-                                <span>电话：</span>
-                                <span>400-123-4567</span>
-                            </li>
-                            <li>
-                                <span>邮箱：</span>
-                                <span>info@sao-ning.com</span>
-                            </li>
-                            <li>
-                                <span>网址：</span>
-                                <span>www.sao-ning.com</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>关于骚宁</h4>
-                    <p>专注于医药健康领域，为您提供高品质的产品和服务</p>
-                </div>
-                <div class="footer-column">
-                    <h4>产品系列</h4>
-                    <ul>
-                        <li><a href="#">肾宝片系列</a></li>
-                        <li><a href="#">养生保健系列</a></li>
-                        <li><a href="#">处方药系列</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>快速链接</h4>
-                    <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#about">关于我们</a></li>
-                        <li><a href="#products">产品中心</a></li>
-                        <li><a href="#contact">联系我们</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 骚宁药业有限公司 版权所有 | 京ICP备12345678号</p>
-            </div>
-        </div>
-    </footer>
+    </div>
+
+    <script>
+        const BLESSINGS = {
+            math: [
+                {display: "王彬老师", sub: "祝王老师2026新年快乐"},
+                {display: "师恩如山", sub: "感激您的悉心教导"},
+                {display: "德高望重", sub: "岁月沉淀 智慧长存"},
+                {display: "身体健康", sub: "龙马精神 岁岁平安"},
+                {display: "万事胜意", sub: "生活处处有最优解"},
+                {display: "福寿绵长", sub: "安康常伴 阖家欢乐"},
+                {display: "桃李天下", sub: "春华秋实 硕果累累"},
+                {display: "逻辑严密", sub: "解人生难题 游刃有余"},
+                {display: "心怀坦荡", sub: "正直为本 坦诚待人"},
+                {display: "一帆风顺", sub: "事业生活 步步高升"},
+                {display: "智慧之源", sub: "感谢您点亮数学之光"},
+                {display: "温文尔雅", sub: "君子之风 令人景仰"},
+                {display: "平稳安泰", sub: "不惧风雨 闲庭信步"},
+                {display: "满园芬芳", sub: "学生们的榜样与骄傲"},
+                {display: "2026 丙午马年", sub: "愿您新的一年吉星高照"},
+                {display: "常伴欢欣", sub: "笑口常开 忧虑全消"},
+                {display: "思维永驻", sub: "保持好奇 保持热爱"},
+                {display: "幸福无限", sub: "愿生活充满正能量"},
+                {display: "致敬恩师", sub: "您辛苦了"},
+                {display: "金在熙 敬呈", sub: "学生 金在熙 为您祝福"}
+            ],
+            chinese: [
+                {display: "赵爽老师", sub: "祝赵老师新年大吉"},
+                {display: "风华正茂", sub: "诗意青春 笔墨生辉"},
+                {display: "文采斐然", sub: "字字珠玑 韵味深长"},
+                {display: "如坐春风", sub: "听您的课是一种享受"},
+                {display: "万事顺遂", sub: "心之所向 素履以往"},
+                {display: "平安喜乐", sub: "愿您岁岁年年 欢愉常在"},
+                {display: "大笔一挥", sub: "书写锦绣前程"},
+                {display: "常怀热爱", sub: "眼有星辰 奔赴山海"},
+                {display: "温婉如玉", sub: "知性优雅 沁人心脾"},
+                {display: "步步生花", sub: "愿您的生活充满诗意"},
+                {display: "卓尔不群", sub: "独特的灵魂 最美的光"},
+                {display: "顺心顺意", sub: "没有烦恼 只有惊喜"},
+                {display: "心向光明", sub: "每一天都充满希望"},
+                {display: "青春不老", sub: "时光温柔 待您如初"},
+                {display: "墨香留存", sub: "感谢您的文学启蒙"},
+                {display: "自在舒心", sub: "忙里偷闲 享受生活"},
+                {display: "元气满满", sub: "每天都有好心情"},
+                {display: "梦想成真", sub: "期待更多美好发生"},
+                {display: "老师辛苦了", sub: "最诚挚的感谢"},
+                {display: "金在熙 敬呈", sub: "学生 金在熙 敬贺"}
+            ],
+            english: [
+                {display: "Dear Ms. Wang", sub: "致 优雅的王曼老师"},
+                {display: "Best Wishes", sub: "最诚挚的新年祝福\nHappy New Year"},
+                {display: "Full of Wisdom", sub: "智慧博学 引领我们前行\nFull of wisdom"},
+                {display: "Elegant Soul", sub: "知性优雅 气质非凡\nAn elegant soul"},
+                {display: "Inspiration", sub: "您是我们的榜样\nYou are our inspiration"},
+                {display: "Great Success", sub: "祝您事业辉煌\nWish you great success"},
+                {display: "Pure Joy", sub: "愿您每一天都充满快乐\nMay you have pure joy"},
+                {display: "Stay Young", sub: "时光荏苒 青春永驻\nStay young and beautiful"},
+                {display: "Bright Future", sub: "前程似锦 光芒万丈\nA bright future ahead"},
+                {display: "Health & Wealth", sub: "身体健康 财源广进\nHealth and wealth to you"},
+                {display: "Kind Hearts", sub: "温柔以待 岁岁平安\nKind hearts get rewarded"},
+                {display: "Peaceful Life", sub: "宁静致远 生活安泰\nLive a peaceful life"},
+                {display: "Always Smiling", sub: "笑口常开 好运连连\nKeep on smiling always"},
+                {display: "Magic Moments", sub: "生活处处有惊喜\nCreate magic moments"},
+                {display: "Best Teacher", sub: "您是最好的老师\nYou are the best teacher"},
+                {display: "High Spirits", sub: "精神抖擞 迎接挑战\nKeep your spirits high"},
+                {display: "Wonderful 2026", sub: "精彩的2026年正在开启\nA wonderful year 2026"},
+                {display: "Endless Love", sub: "被爱包围 温暖常在\nEndless love and warmth"},
+                {display: "Heartfelt Thanks", sub: "由衷的感谢与敬意\nMy heartfelt thanks"},
+                {display: "Yours, Jin Zaixi", sub: "学生 金在熙 敬上\nFrom your student"}
+            ],
+            politics: [
+                {display: "徐小丹老师", sub: "祝徐老师新年快乐"},
+                {display: "元气满满", sub: "青春无敌 活力四射"},
+                {display: "正直灵魂", sub: "塑造品格 传递正能"},
+                {display: "指路明灯", sub: "感谢您的思想引领"},
+                {display: "永远年轻", sub: "心态不老 芳华长存"},
+                {display: "心向暖阳", sub: "世界温柔 每一天都灿烂"},
+                {display: "坚定不移", sub: "追逐梦想 无畏艰险"},
+                {display: "通达睿智", sub: "洞察世事 明辨是非"},
+                {display: "生活美满", sub: "阖家团圆 幸福安康"},
+                {display: "事事称心", sub: "心之所愿 皆能实现"},
+                {display: "魅力十足", sub: "自信最美 闪耀全场"},
+                {display: "笑逐颜开", sub: "烦恼走开 快乐留下来"},
+                {display: "步步稳健", sub: "稳打稳扎 步步高升"},
+                {display: "大吉大利", sub: "2026 好运加倍"},
+                {display: "格局宏大", sub: "胸怀天下 展望未来"},
+                {display: "惬意从容", sub: "生活优雅 节奏自如"},
+                {display: "平安喜乐", sub: "简单的生活 最真的福"},
+                {display: "满怀希望", sub: "期待新的一年 更多精彩"},
+                {display: "老师您辛苦了", sub: "向您致以崇高敬意"},
+                {display: "金在熙 敬呈", sub: "学生 金在熙 贺岁"}
+            ]
+        };
+
+        let scene, camera, renderer, particles;
+        const PARTICLE_COUNT = 85000; // 粒子数继续优化
+        const posArr = new Float32Array(PARTICLE_COUNT * 3);
+        const targetArr = new Float32Array(PARTICLE_COUNT * 3);
+        const colorArr = new Float32Array(PARTICLE_COUNT * 3);
+
+        let textIndex = 0;
+        let isShowStarted = false;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.z = 1200;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            document.getElementById('world').appendChild(renderer.domElement);
+
+            const sprite = createGlowTexture();
+            const geometry = new THREE.BufferGeometry();
+            
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const r = 2000 * Math.random();
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.random() * Math.PI;
+                posArr[i*3] = r * Math.sin(phi) * Math.cos(theta);
+                posArr[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+                posArr[i*3+2] = r * Math.cos(phi);
+                targetArr[i*3] = posArr[i*3];
+                targetArr[i*3+1] = posArr[i*3+1];
+                targetArr[i*3+2] = posArr[i*3+2];
+                colorArr[i*3] = 0.5; colorArr[i*3+1] = 0.8; colorArr[i*3+2] = 1.0;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colorArr, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 9,
+                map: sprite,
+                vertexColors: true,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthTest: false
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            window.addEventListener('resize', onResize);
+            animate();
+        }
+
+        function createGlowTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64; canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createRadialGradient(32,32,0,32,32,32);
+            grad.addColorStop(0, 'white');
+            grad.addColorStop(0.2, 'rgba(0,242,255,0.7)');
+            grad.addColorStop(1, 'black');
+            ctx.fillStyle = grad; ctx.fillRect(0,0,64,64);
+            const tex = new THREE.Texture(canvas);
+            tex.needsUpdate = true; return tex;
+        }
+
+        // 核心改动：支持换行和更精美的边缘
+        function calculateTextCoords(text) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 2400; canvas.height = 1200;
+            
+            const isChinese = /[\u4e00-\u9fa5]/.test(text);
+            const fSize = isChinese ? 240 : 180;
+            ctx.font = `900 ${fSize}px "PingFang SC", "Microsoft YaHei", Arial`;
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            // 分行处理（按单词或字数）
+            const words = text.split(" ");
+            if (words.length > 2 && !isChinese) {
+                const mid = Math.ceil(words.length / 2);
+                const line1 = words.slice(0, mid).join(" ");
+                const line2 = words.slice(mid).join(" ");
+                ctx.fillText(line1, 1200, 450);
+                ctx.fillText(line2, 1200, 750);
+            } else if (text.length > 6 && isChinese) {
+                const line1 = text.substring(0, 4);
+                const line2 = text.substring(4);
+                ctx.fillText(line1, 1200, 450);
+                ctx.fillText(line2, 1200, 750);
+            } else {
+                ctx.fillText(text, 1200, 600);
+            }
+
+            const data = ctx.getImageData(0,0,2400,1200).data;
+            const coords = [];
+            const step = isChinese ? 3 : 4;
+
+            for(let y=0; y<1200; y+=step){
+                for(let x=0; x<2400; x+=step){
+                    if(data[(y*2400 + x)*4 + 3] > 100){
+                        coords.push({x: (x-1200)*1.4, y: -(y-600)*1.4});
+                    }
+                }
+            }
+            return coords;
+        }
+
+        async function nextSlide() {
+            const teacher = document.getElementById('teacher-select').value;
+            const list = BLESSINGS[teacher];
+            if(textIndex >= list.length) {
+                isShowStarted = false;
+                textIndex = 0;
+                document.getElementById('ui-layer').style.opacity = 1;
+                document.getElementById('ui-layer').style.pointerEvents = "auto";
+                document.getElementById('subtitle').style.opacity = 0;
+                return;
+            }
+
+            const item = list[textIndex];
+            textIndex++;
+
+            const sub = document.getElementById('subtitle');
+            sub.innerHTML = item.sub;
+            sub.style.opacity = 1;
+
+            // 扩散动画
+            for(let i=0; i<PARTICLE_COUNT; i++){
+                targetArr[i*3] *= 1.5;
+                targetArr[i*3+1] *= 1.5;
+                targetArr[i*3+2] += 2000;
+            }
+            
+            await new Promise(r => setTimeout(r, 800)); 
+
+            const coords = calculateTextCoords(item.display);
+            coords.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                if (i < coords.length) {
+                    targetArr[i*3] = coords[i].x;
+                    targetArr[i*3+1] = coords[i].y;
+                    targetArr[i*3+2] = 0;
+                    colorArr[i*3] = 0.2; colorArr[i*3+1] = 0.95; colorArr[i*3+2] = 1.0;
+                } else {
+                    const r = 2500 + Math.random()*1500;
+                    const a = Math.random()*Math.PI*2;
+                    targetArr[i*3] = Math.cos(a)*r;
+                    targetArr[i*3+1] = Math.sin(a)*r;
+                    targetArr[i*3+2] = -2000 - Math.random()*2000;
+                    colorArr[i*3] = 0.8; colorArr[i*3+1] = 0.5; colorArr[i*3+2] = 0.1;
+                }
+            }
+            particles.geometry.attributes.color.needsUpdate = true;
+
+            setTimeout(nextSlide, 3800); 
+        }
+
+        function startShow() {
+            if(!document.getElementById('teacher-select').value) return;
+            isShowStarted = true;
+            document.getElementById('ui-layer').style.opacity = 0;
+            document.getElementById('ui-layer').style.pointerEvents = "none";
+            nextSlide();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            TWEEN.update();
+            const time = Date.now() * 0.001;
+            const pos = particles.geometry.attributes.position;
+            
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const ix = i*3, iy = i*3+1, iz = i*3+2;
+                const lerp = isShowStarted ? 0.08 : 0.02;
+                pos.array[ix] += (targetArr[ix] - pos.array[ix]) * lerp;
+                pos.array[iy] += (targetArr[iy] - pos.array[iy]) * lerp;
+                pos.array[iz] += (targetArr[iz] - pos.array[iz]) * lerp;
+                
+                if(isShowStarted) {
+                    pos.array[ix] += Math.sin(time*1.5 + i)*0.4;
+                    pos.array[iy] += Math.cos(time*1.5 + i)*0.4;
+                }
+            }
+            pos.needsUpdate = true;
+            camera.position.x = Math.sin(time*0.4)*30;
+            camera.lookAt(0,0,0);
+            renderer.render(scene, camera);
+        }
+
+        function onResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        init();
+    </script>
 </body>
 </html>
